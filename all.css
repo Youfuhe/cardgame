@@ -83,6 +83,7 @@ p i {
     width: 125px;
     height: 125px;
     border-radius: 10px;
+    margin-bottom: 20px;
     /* position: relative; */
 }
 
