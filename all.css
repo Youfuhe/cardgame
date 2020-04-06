@@ -69,11 +69,12 @@ p i {
     width: 600px;
     min-width: 600px;
     height: 600px;
+    min-height: 600px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* align-content: stretch; */
-    padding-top: 25px;
+    align-content: space-around;
+    padding-top: 10px;
     border-radius: 10px;
     box-shadow: 20px 20px 30px rgb(122, 121, 121);
     background: linear-gradient(160deg, rgb(0, 204, 255), rgb(166, 50, 243));
@@ -83,7 +84,7 @@ p i {
     width: 125px;
     height: 125px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     /* position: relative; */
 }
 
