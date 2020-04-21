@@ -21,7 +21,7 @@
         <div class="comple " v-if="calculation === 16">
             <div class="sma-box " @click="ret">
                 <h1>恭喜過關</h1>
-                <h2>你使用了 {{num}} Move</h2>
+                <h2>你使用了 {{parseInt(num/2)}} Move</h2>
             </div>
         </div>
         <main>
@@ -30,7 +30,7 @@
             <p>{{parseInt(num/2)}} Moves <i class="fas fa-undo-alt" @click="ret"></i></p>
             <div class="wrap">
                 <div class="card-wrap" @click="tran(index)" v-for="(item, index) in arr" :key="index">
-                    <div class="card comp" :class="{active:item.trun , comp:item.copm}">
+                    <div class="card" :class="[{comp:item.comp},{active:item.trun}]">
 
                         <div class="card-front">
 
@@ -54,58 +54,74 @@
             trannum: 0,
             arrkey: [],
 
-            comp: false,
+            // comp: false,
 
             num: 0,
 
             arr: [{
                 img: 'fas fa-rocket fa-4x',
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: 'fas fa-rocket fa-4x',
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: 'fab fa-apple fa-4x',
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: 'fab fa-apple fa-4x',
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-css3-alt fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-css3-alt fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-html5 fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-html5 fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-node-js fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-node-js fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-vuejs fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-vuejs fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-npm fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-npm fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-windows fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, {
                 img: "fab fa-windows fa-4x",
-                trun: false
+                trun: false,
+                comp: false
             }, ],
         },
         computed: {
@@ -141,29 +157,31 @@
 
                 // 當翻2張牌時不動作
                 if (this.trannum === 2) return;
+
                 this.num++;
                 this.arr[key].trun = !this.arr[key].trun;
                 this.arrkey.push(key)
-                console.log(this.trannum, this.arrkey[0])
+                    // console.log(this.trannum, this.arrkey[0])
                 this.trannum++;
                 if (this.trannum === 2) {
+                    // 2張牌相同
+                    if (this.arr[this.arrkey[0]].img === this.arr[this.arrkey[1]].img) {
+
+                        // 一樣時讓他發亮
+                        this.arr[this.arrkey[0]].comp = true;
+                        this.arr[this.arrkey[1]].comp = true;
+
+                        this.arrkey = [];
+                        this.trannum = 0;
+                        return;
+                    }
+                    //2張牌不相同
                     setTimeout(this.tranTwi, 1000)
                 }
             },
 
             // 翻2次蓋排
             tranTwi() {
-                // 2張牌相同時
-                if (this.arr[this.arrkey[0]].img === this.arr[this.arrkey[1]].img) {
-
-                    // 一樣時讓他發亮
-                    this.arr[this.arrkey[0]].comp = true;
-                    this.arr[this.arrkey[1]].comp = true;
-
-                    this.arrkey = [];
-                    this.trannum = 0;
-                    return;
-                }
                 this.arr[this.arrkey[0]].trun = false;
                 this.arr[this.arrkey[1]].trun = false;
                 this.arrkey = [];
@@ -173,6 +191,7 @@
             ret() {
                 this.arr.forEach(item => {
                     item.trun = false;
+                    item.comp = false;
                 });
                 this.trannum = 0;
                 this.arrkey = [];

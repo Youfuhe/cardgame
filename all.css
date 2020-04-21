@@ -103,9 +103,10 @@ p i {
     transition: 0.5s transform ease;
 }
 
-.card:hover {
+
+/* .card:hover {
     box-shadow: 0 0 10px rgba(255, 250, 250, 0.527);
-}
+} */
 
 .card:hover .card-front {
     background-color: rgb(28, 20, 141);
@@ -123,7 +124,7 @@ p i {
     /*hide backface*/
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.329);
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.329); */
     color: #333;
     top: 0;
     left: 0;
