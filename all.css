@@ -96,8 +96,11 @@ p i {
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.329);
     cursor: pointer;
     /*preserve the back when fliping*/
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    /* transition: 0.5s transform ease; */
+    transition: 0.5s transform ease;
 }
 
 .card:hover {
