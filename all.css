@@ -121,6 +121,7 @@ p i {
     width: 100%;
     height: 100%;
     /*hide backface*/
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.329);
     color: #333;
@@ -138,6 +139,7 @@ p i {
     width: 100%;
     height: 100%;
     /*hide backface*/
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     color: white;
     background-color: rgb(2, 226, 255);
