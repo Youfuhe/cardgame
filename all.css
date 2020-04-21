@@ -97,7 +97,7 @@ p i {
     cursor: pointer;
     /*preserve the back when fliping*/
     transform-style: preserve-3d;
-    transition: 0.5s transform ease;
+    /* transition: 0.5s transform ease; */
 }
 
 .card:hover {
