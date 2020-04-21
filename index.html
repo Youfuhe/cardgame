@@ -27,7 +27,7 @@
         <main>
             <h1>翻牌小遊戲</h1>
 
-            <p>{{num}} Moves <i class="fas fa-undo-alt" @click="ret"></i></p>
+            <p>{{parseInt(num/2)}} Moves <i class="fas fa-undo-alt" @click="ret"></i></p>
             <div class="wrap">
                 <div class="card-wrap" @click="tran(index)" v-for="(item, index) in arr" :key="index">
                     <div class="card comp" :class="{active:item.trun , comp:item.copm}">
